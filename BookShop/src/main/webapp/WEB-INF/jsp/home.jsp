@@ -61,7 +61,7 @@
 									<a href="resigter">注册</a>
 								</li>
 								<li>
-									<a href="loginForm">用户切换</a>
+									
 								</li>
 							</ul>
 						</li>
