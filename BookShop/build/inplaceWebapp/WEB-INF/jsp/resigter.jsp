@@ -101,6 +101,9 @@
 				<button type="submit" class="btn btn-default">
 					提交
 				</button>
+				<button type="button" class="btn btn-default">
+					<a href="loginForm">返回登录</a>
+				</button>
 			</form>
 		</div>
 		<div class="col-md-4">

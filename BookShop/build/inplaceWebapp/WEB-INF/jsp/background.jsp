@@ -50,6 +50,12 @@
 								<li >
 									<a href="science">科普</a>
 								</li>
+								<li >
+									<a href="cart">购物车</a>
+								</li>
+								<li >
+									<a href="collect">我的收藏</a>
+								</li>
 								<li class="dropdown pull-right">
 									 <a href="#" data-toggle="dropdown" class="dropdown-toggle">其他<strong class="caret"></strong></a>
 									<ul class="dropdown-menu">
@@ -101,6 +107,7 @@
 					<div id="panel-element-389560" class="panel-collapse collapse">
 						<div class="panel-body">
 							<a href="cart">购物车</a><br>
+							<a href="collect">我的收藏</a><br>
 							<a href="resigter">注册</a><br>
 							<a href="background">管理员后台</a><br>
 							<a href="loginForm">用户切换</a>

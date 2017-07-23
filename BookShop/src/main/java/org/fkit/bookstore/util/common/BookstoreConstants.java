@@ -7,6 +7,7 @@ public class BookstoreConstants {
 	public static final String BOOKTABLE="tb_book";
 	public static final String ORDERTABLE="tb_order";
 	public static final String DETAILTABLE="tb_detail";
+	public static final String COLLECTTABLE="tb_collect";
 	//登录
 	public static final String LOGIN="loginForm";
 	//用户的session对象

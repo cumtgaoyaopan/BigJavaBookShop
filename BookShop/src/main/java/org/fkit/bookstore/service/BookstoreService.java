@@ -21,6 +21,13 @@ public interface BookstoreService {
 	 * */
 	User forget(String loginname,String phonenumber,String email);
 	/**
+	 * 用户修改密码
+	 * @Param loginname
+	 * @Param password
+	 * @return User 对象
+	 * */
+	User confirm(String loginname,String password);
+	/**
 	 * 根据userID查询用户
 	 * @Param userID
 	 * @return 用户对象
@@ -69,5 +76,24 @@ public interface BookstoreService {
 	/**
 	 * 输入订单细节
 	 **/
-	void insertDetail(String loginname,String bookname,Double price,Integer count);
+	void insertDetail(String loginname,String bookname,String author,Double price,Integer count);
+	/**
+	 * 查找订单细节
+	 * @return Detail小说对象集合
+	 */
+	List<Detail> getAllDetailByLoginname();
+	/**
+	 * 输入订单细节添加收藏
+	 **/
+	void insertCollect(String loginname,String bookname,String author,String publish,Double price,String picture_s); 
+	/**
+	 * 查找收藏
+	 * @return Collect小说对象集合
+	 */
+	List<Collect> getAllCollectByLoginname();
+	/**
+	 * 清空购物车
+	 **/
+	void clearCart();
+	
 }

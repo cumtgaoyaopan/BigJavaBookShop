@@ -4,10 +4,11 @@ import java.io.Serializable;
 
 public class Detail implements Serializable{
 	private Integer ID;//订单编号
-	private User userID;//用户编号
+	private Order orderID;//用户编号
 	private String loginname;//用户名
 	private Book bookID;//书籍编号
 	private String bookname;//书名
+	private String author;//作者
 	private Double price;//价格
 	private Integer count;//数量
 	
@@ -25,12 +26,12 @@ public class Detail implements Serializable{
 			ID = iD;
 		}
 
-		public User getUserID() {
-			return userID;
+		public Order getOrderID() {
+			return orderID;
 		}
 
-		public void setUserID(User userID) {
-			this.userID = userID;
+		public void setOrderID(Order orderID) {
+			this.orderID = orderID;
 		}
 
 		public String getLoginname() {
@@ -56,6 +57,14 @@ public class Detail implements Serializable{
 		public void setBookname(String bookname) {
 			this.bookname = bookname;
 		}
+		
+		public String getAuthor() {
+			return author;
+		}
+
+		public void setAuthor(String author) {
+			this.author = author;
+		}
 
 		public Double getPrice() {
 			return price;
@@ -75,7 +84,7 @@ public class Detail implements Serializable{
 
 		@Override
 		public String toString() {
-			return "Detail [ID=" + ID + ", userID=" + userID + ", loginname=" + loginname + ", bookID=" + bookID
+			return "Detail [ID=" + ID + ", orderID=" + orderID + ", loginname=" + loginname + ", bookID=" + bookID
 					+ ", bookname=" + bookname + ", price=" + price + ", count=" + count + "]";
 		}
 	

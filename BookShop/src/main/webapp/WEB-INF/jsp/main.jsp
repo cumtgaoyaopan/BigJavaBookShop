@@ -8,5 +8,8 @@
 </head>
 <body>
 	<h2>您的密码是：${user.password }</h2>
+	<button type="button" class="btn btn-default">
+			<a href="loginForm">返回登录</a>
+	</button>
 </body>
 </html>

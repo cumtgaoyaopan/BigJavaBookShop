@@ -81,6 +81,32 @@ public class UserController {
 		return mv;
 	}
 	/**
+	 * 处理登录请求
+	 * @param String loginname 登录名
+	 * @param String password 密码
+	 * @return 跳转的视图
+	 */
+	@RequestMapping(value="/confirm")
+	public ModelAndView confirm(@RequestParam("loginname") String loginname,
+			@RequestParam("password") String password,
+			HttpSession session,
+			ModelAndView mv){
+		//调用业务逻辑组件判断用户是否可以修改
+		User user = bookstoreService.confirm(loginname, password);
+		if(user != null){
+			//将用户保存到HttpSession当中
+			session.setAttribute(BookstoreConstants.USER_SESSION, user);
+			//客户端跳转到home页面
+			mv.setViewName("forward:/newpassword");
+		}else{
+			//设置登录失败提示信息
+			mv.addObject("message", "登录名或密码错误！无法修改密码");
+			//服务期内不跳转到登录页面
+			mv.setViewName("forward:/failure");
+		}
+		return mv;
+	}
+	/**
 	 * 处理查询请求
 	 * @param pageIndex 请求的是第几页
 	 * @param user 模糊查询参数

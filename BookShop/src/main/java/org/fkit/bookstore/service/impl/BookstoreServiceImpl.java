@@ -29,6 +29,8 @@ public class BookstoreServiceImpl implements BookstoreService {
 	private BookDao bookDao;
 	@Autowired
 	private DetailDao detailDao;
+	@Autowired
+	private CollectDao collectDao;
 	
 	/**********************用户服务接口实现****************************/
 	/**
@@ -52,6 +54,17 @@ public class BookstoreServiceImpl implements BookstoreService {
 		// TODO Auto-generated method stub
 		System.out.println("BookstoreImpl forget -- >>");
 		return userDao.selectByPhonenumberAndEmail(loginname,phonenumber, email);
+	}
+	/**
+	 * BookstoreServiceImpl接口confirm方法实现
+	 * @see { BookstoreService }
+	 */
+	@Transactional(readOnly=true)
+	@Override
+	public User confirm(String loginname, String password) {
+		// TODO Auto-generated method stub
+		System.out.println("BookstoreImpl confirm -- >>");
+		return userDao.selectByUsernameAndPassword(loginname, password);
 	}
 	/**
 	 * BookstoreServiceImpl接口findUserByUserID方法实现
@@ -138,10 +151,50 @@ public class BookstoreServiceImpl implements BookstoreService {
 	 * @see {BookstoreService}
 	 */
 	@Override
-	public void insertDetail(String loginname, String bookname,Double price,Integer count) {
+	public void insertDetail(String loginname,String bookname,String author,Double price,Integer count) {
 		// TODO Auto-generated method stub
-		 detailDao.insertDetail(loginname, bookname,price,count);
+		 detailDao.insertDetail(loginname, bookname, author, price, count);
 	}
+	/**
+	 * BookstoreService接口getAllDetailByLoginname方法实现
+	 * @see {BookstoreService}
+	 */
+	@Override
+	public List<Detail> getAllDetailByLoginname() {
+		// TODO Auto-generated method stub
+		return detailDao.findAllDetailByLoginname();
+	}
+	/**
+	 * BookstoreService接口clearCart方法实现
+	 * @see {BookstoreService}
+	 */
+	@Override
+	public void clearCart() {
+		// TODO Auto-generated method stub
+		detailDao.clearCart();
+	}
+	
+	/**
+	 * BookstoreService接口insertCollect方法实现
+	 * @see {BookstoreService}
+	 */
+	@Override
+	public void insertCollect(String loginname, String bookname, String author, String publish, Double price,
+			String picture_s) {
+		// TODO Auto-generated method stub
+		collectDao.insertCollect(loginname, bookname, author, publish, price, picture_s);
+	}
+	/**
+	 * BookstoreService接口getAllDetailByLoginname方法实现
+	 * @see {BookstoreService}
+	 */
+	@Override
+	public List<Collect> getAllCollectByLoginname() {
+		// TODO Auto-generated method stub
+		return collectDao.findAllCollectByLoginname();
+	}
+	
+	
 
 	
 }

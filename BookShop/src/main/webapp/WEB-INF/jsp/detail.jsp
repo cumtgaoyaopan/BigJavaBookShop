@@ -51,8 +51,11 @@
 								<li>
 									<a href="science">科普</a>
 								</li>
-								<li>
+								<li >
 									<a href="cart">购物车</a>
+								</li>
+								<li >
+									<a href="collect">我的收藏</a>
 								</li>
 								<li class="dropdown pull-right">
 									 <a href="#" data-toggle="dropdown" class="dropdown-toggle">其他<strong class="caret"></strong></a>
@@ -65,6 +68,9 @@
 										</li>
 										<li>
 											<a href="loginForm">用户切换</a>
+										</li>
+										<li>
+											<a href="change">修改密码</a>
 										</li>
 									</ul>
 								</li>
@@ -105,9 +111,11 @@
 					<div id="panel-element-389560" class="panel-collapse collapse">
 						<div class="panel-body">
 							<a href="cart">购物车</a><br>
+							<a href="collect">我的收藏</a><br>
 							<a href="resigter">注册</a><br>
 							<a href="background">管理员后台</a><br>
-							<a href="loginForm">用户切换</a>
+							<a href="loginForm">用户切换</a><br>
+							<a href="change">修改密码</a>
 						</div>
 					</div>
 				</div>
@@ -153,14 +161,26 @@
 						</dt>
 						
 					 </dl>
+				 <form  action="addCollect" method="post">
+					<input type="hidden" name="loginname" id="loginname" value="${sessionScope.user_session.loginname }"   >
+					<!-- <input type="hidden" name="bookID" id="bookID" value="${book.bookID }"   > -->
+					<input type="hidden" name="bookname" id="bookname" value="${book.bookname }"   >
+					<input type="hidden" name="author" id="author" value="${book.author }"   >
+					<input type="hidden" name="publish" id=""publish"" value="${book.publish }"   >
+					<input type="hidden" name="price" id="price" value="${book.price }"   >
+					<input type="hidden" name="picture_s" id=""picture_s"" value="${book.picture_s }"   >
+					<input type="submit" class="btn btn-danger btn-lg  active" value="收藏" />
+				</form> 
 				 <form  action="addDetail" method="post">
 					<input type="hidden" name="loginname" id="loginname" value="${sessionScope.user_session.loginname }"   >
+					<!-- <input type="hidden" name="bookID" id="bookID" value="${book.bookID }"   > -->
 					<input type="hidden" name="bookname" id="bookname" value="${book.bookname }"   >
+					<input type="hidden" name="author" id="author" value="${book.author }"   >
 					<input type="hidden" name="price" id="price" value="${book.price }"   >
 					购买份数：<input type="text" name="count" id="count" value="1" >
-					<input type="submit" class="btn btn-danger btn-lg  active" value="购买" />
+					<input type="submit" class="btn btn-danger btn-lg  active" value="加入购物车" />
 				</form> 
-				<!-- <a href="addDetail?loginname=${sessionScope.user_session.loginname }&bookname=${book.bookname}&price=${book.price }"	>加入购物车</a> -->
+				
 				</div>
 			</div>
 		</div>

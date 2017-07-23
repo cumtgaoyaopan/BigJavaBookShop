@@ -51,6 +51,12 @@
 								<li >
 									<a href="science">科普</a>
 								</li>
+								<li >
+									<a href="cart">购物车</a>
+								</li>
+								<li >
+									<a href="collect">我的收藏</a>
+								</li>
 								<li class="dropdown pull-right">
 									 <a href="#" data-toggle="dropdown" class="dropdown-toggle">其他<strong class="caret"></strong></a>
 									<ul class="dropdown-menu">
@@ -62,6 +68,9 @@
 										</li>
 										<li>
 											<a href="loginForm">用户切换</a>
+										</li>
+										<li>
+											<a href="change">修改密码</a>
 										</li>
 									</ul>
 								</li>
@@ -102,9 +111,11 @@
 					<div id="panel-element-389560" class="panel-collapse collapse">
 						<div class="panel-body">
 							<a href="cart">购物车</a><br>
+							<a href="collect">我的收藏</a><br>
 							<a href="resigter">注册</a><br>
 							<a href="background">管理员后台</a><br>
-							<a href="loginForm">用户切换</a>
+							<a href="loginForm">用户切换</a><br>
+							<a href="change">修改密码</a>
 						</div>
 					</div>
 				</div>
@@ -134,34 +145,40 @@
 											作者
 										</th>
 										<th>
-											出版社
+											价格
 										</th>
 										<th>
-											价格
+											数量
+										</th>
+										<th>
+											操作
 										</th>
 									</tr>
 								</thead>
-								
+								<c:forEach items="${requestScope.detail_list }" var="detail">
 								<tbody>
 									<tr>
 										<td>
-											bookID
+											${detail.ID }
 										</td>
 										<td>
-											bookname
+											${detail.bookname }
 										</td>
 										<td>
-											author
+											${detail.author }
 										</td>
 										<td>
-											publish
+											${detail.price }
 										</td>
 										<td>
-											price
+											${detail.count }
+										</td>
+										<td>
+											<a href="#">删除</a>
 										</td>
 									</tr>
 								</tbody>
-								
+								</c:forEach>
 							</table>
 						</div>
 						<div class="col-md-2">
@@ -175,6 +192,9 @@
 							 
 							<button type="button" class="btn btn-danger btn-lg active">
 								确认购买
+							</button><br>
+							<button type="button" class="btn  btn-lg active">
+								<a href="clear">清空购物车</a>
 							</button>
 						</div>
 					</div>
